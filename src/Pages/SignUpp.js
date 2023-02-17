@@ -56,7 +56,7 @@ function SignUpp() {
         .then((data) => {
           if(data === "Undefined")alert("some error occured")
           console.log(data);
-          window.location='/'
+          window.location='/Loginadv'
         });
     } catch (error) {
       console.log("Error-> ", error);
