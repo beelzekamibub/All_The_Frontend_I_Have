@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import "../styles/SignUp.css";
 
 function SignUpp() {
+
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -19,21 +20,27 @@ function SignUpp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [password, setPassword] = useState("");
 
-  let values = {
-    firstName: firstname,
-    lastName: lastname,
-    email: email,
-    phone: phone,
-    company: company,
-    address: address,
-    city: city,
-    state: state,
-    password: password,
-    confirmPassword: confirmPassword,
-  };
-  const Register = () => {
+
+
+  const Register = (e) => {
+    e.preventDefault();
+    let values = {
+      "firstName": firstname,
+      "lastName": lastname,
+      "email": email,
+      "phone": phone,
+      "company": company,
+      "address": address,
+      "city": city,
+      "state": state,
+      "password": password,
+      "confirmPassword": confirmPassword,
+    };
+
+
+
     try {
-       alert("ljlslfdjls");
+      // alert("ljlslfdjls");
       console.log("made a fetch call");
       fetch("https://localhost:7061/api/Auth/Register", {
         method: "POST",
@@ -45,10 +52,10 @@ function SignUpp() {
         },
         body: JSON.stringify(values),
       })
-        .then((res) => res.json())
+        .then((res) => {if(res.status===200)alert("User Registered")})
         .then((data) => {
+          if(data === "Undefined")alert("some error occured")
           console.log(data);
-          alert("registered")
           window.location='/'
         });
     } catch (error) {

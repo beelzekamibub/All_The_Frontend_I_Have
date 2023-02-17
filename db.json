@@ -1,18 +1,11 @@
 {
-    "AdviserClientList": [
-      {
-        "id": 1,
-        "clientName": "Arushi",
-        "mail": "arushi@gmail.com",
-        "phoneNo": "54637",
-        "newInves": "1100"
-      },
-      {
-        "id": 2,
-        "clientName": "Anjali",
-        "mail": "anjali@gmail.com",
-        "phoneNo": "54637",
-        "newInves": "1100"
-      }
-    ]
-  }
+  "AdviserClientList": [
+    {
+      "id": 2,
+      "clientName": "Anjali",
+      "mail": "anjali@gmail.com",
+      "phoneNo": "54637",
+      "newInves": "1100"
+    }
+  ]
+}
