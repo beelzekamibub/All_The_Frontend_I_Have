@@ -4,13 +4,15 @@ import { Navbarr } from "../Components/navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../styles/Logininvs.css";
-import axios from "axios";
+
 
 export const Loginadv = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const ForgotPassword = ()=>{
 
+  }
   const SignIn = (e) => {
     e.preventDefault();
     let values = {
@@ -19,7 +21,6 @@ export const Loginadv = () => {
     };
 
     try {
-      alert("ljlslfdjls");
       console.log("made a fetch call");
       fetch("https://localhost:7061/api/User/AdvisorLogin", {
         method: "POST",
@@ -58,7 +59,7 @@ export const Loginadv = () => {
           <h3 className="signUpHeader">Advisor's SignIn</h3>
           <p className="signUpText">Let's build your Portfolio</p>
           <Form.Group className="mb-3" controlId="formBasicEmail1" md="true">
-            <Form.Label>User name</Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
           </Form.Group>
 
@@ -75,20 +76,9 @@ export const Loginadv = () => {
             Sign In
           </Button>
 
-          <Button variant="link" size="sm" id="abc" href="/forgetPassword">
+          <Button onClick={ForgotPassword} variant="link" size="sm" id="abc" href="/forgetPassword">
             Forgot Password?
           </Button>
-          <div>
-            <p className="clickHereClass">Don't have an account?</p>
-            <Button
-              variant="link"
-              size="sm"
-              className="clickHereclass"
-              id="clickHereId"
-            >
-              Ask Advisor
-            </Button>
-          </div>
         </Form>
       </div>
       <Footer />
