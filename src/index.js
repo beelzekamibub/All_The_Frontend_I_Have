@@ -17,7 +17,7 @@ import { ForgetPassword } from './Pages/forgetPassword';
 import { Investment } from './Pages/Investment';
 import { AdviserProfile } from './Pages/AdvisorProfile';
 import { AddClient } from './Pages/AddClient';
-
+import { Dashboard } from './Pages/dashboard';
 
 
 const router = createBrowserRouter([
@@ -64,6 +64,11 @@ const router = createBrowserRouter([
   {
     path: "investment",
     element: <Investment/>,
+  },
+
+  {
+    path: "dashboard",
+    element: <Dashboard/>,
   }
   
   

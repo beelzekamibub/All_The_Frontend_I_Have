@@ -1,10 +1,13 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
+import { Sidenav } from '../Components/sidenav'
 
 
 export const ClientList = () => {
     
             return(
+              <>
+              <Sidenav/>
                 <div className='container'>
 
                 <h3>Client List</h3> 
@@ -39,6 +42,7 @@ export const ClientList = () => {
       </tbody>
     </Table>
                 </div>
+                </>
             )
         
 }

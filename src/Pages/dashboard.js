@@ -1,13 +1,12 @@
 import React from 'react'
 import { Sidenav } from '../Components/sidenav'
 
-
-export const AddClient = () => {    
-    
+export const Dashboard = () => {
+   
             return(
                 <div>
-                     <Sidenav/>
-                   Add Client Page
+                    <Sidenav/>
+                  
                 </div>
             )
         
