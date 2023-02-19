@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Footer } from "../Components/footer";
 import { Navbarr } from "../Components/navbar";
 import MyTypewriterComponentt from "../Components/MyTypewriterComponent.js";
@@ -13,6 +13,42 @@ import { AiOutlineToTop } from "react-icons/ai";
 import { Container, Row, Col } from "react-bootstrap";
 
 function Home(){
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const ForgotPassword=()=>{
+    
+  }
+  const SignIn = (e) => {
+    e.preventDefault();
+    let values = {
+      "email": email,
+      "password": password,
+    };
+
+    try {
+      console.log("made a fetch call");
+      fetch("https://localhost:7061/api/User/AdvisorLogin", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE",
+          "Access-Control-Max-Age": 86400,
+        },
+        body: JSON.stringify(values),
+      })
+        .then((res) => {if(res.status===200)alert("User Registered");
+                        console.log(res.body);})
+        .then((data) => {
+          if(data === "Undefined")alert(data)
+          console.log(data);
+          window.location='/dashboardadv'
+        });
+    } catch (error) {
+      console.log("Error-> ", error);
+    }
+  };
+
   return (
     <>
       <Navbarr />
@@ -41,20 +77,20 @@ function Home(){
                   Admin access via <b>Advisor</b> Account
                 </p>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>User name</Form.Label>
-                  <Form.Control type="text" />
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control value={email} onChange={(e) => setEmail(e.target.value)} type="text" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" />
+                  <Form.Control value={password} onChange={(e)=>setPassword(e.target.value)} type="password" />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button onClick={SignIn} variant="primary" type="submit">
                   Sign In
                 </Button>
 
-                <Button
+                <Button onClick={ForgotPassword}
                   variant="link"
                   size="sm"
                   id="abc"
@@ -64,14 +100,7 @@ function Home(){
                 </Button>
                 <div>
                   <p className="clickHereClass">Don't have an account?</p>
-                  <Button
-                    variant="link"
-                    size="sm"
-                    className="clickHereclass"
-                    id="clickHereId"
-                    href="/SignUp">
-                    Sign Up
-                  </Button>
+                  <Button variant="link" size="sm" className="clickHereclass" id="clickHereId" href="/SignUp"> Sign Up </Button>
                 </div>
               </Form>
             </MDBCol>

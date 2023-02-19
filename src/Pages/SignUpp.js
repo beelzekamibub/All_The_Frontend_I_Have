@@ -40,7 +40,6 @@ function SignUpp() {
 
 
     try {
-      // alert("ljlslfdjls");
       console.log("made a fetch call");
       fetch("https://localhost:7061/api/Auth/Register", {
         method: "POST",
@@ -56,7 +55,7 @@ function SignUpp() {
         .then((data) => {
           if(data === "Undefined")alert("some error occured")
           console.log(data);
-          window.location='/'
+          window.location='/Loginadv'
         });
     } catch (error) {
       console.log("Error-> ", error);
