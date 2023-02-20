@@ -25,7 +25,7 @@ export const ClientDetails = () => {
           </div>
           
           <h1 className="clientname">Client Investment Details</h1>
-          <Table striped bordered hover responsive style={{margin:"2%",width:"92%",textAlign:"center"}}>
+          <Table hover responsive id="table" style={{margin:"2%",width:"92%",textAlign:"center"}}>
       <thead>
         <tr>
           <th>Investment ID</th>
