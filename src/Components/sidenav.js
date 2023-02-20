@@ -11,8 +11,8 @@ import { NavLink } from 'react-router-dom';
 
 export const Sidenav = () => {
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial' }}>
-      <CDBSidebar textColor="#fff" backgroundColor="#333">
+    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial', position: "fixed" }}>
+      <CDBSidebar textColor="#fff" backgroundColor="#333" position="fix">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
           <a href="/" className="text-decoration-none" style={{ color: 'inherit' }}>
             Home

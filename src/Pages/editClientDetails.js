@@ -5,7 +5,7 @@ import Table from "react-bootstrap/Table";
 import { Roww } from "./row";
 import { apiRequest } from "./apiRequest";
 import "../styles/editClientDetails.css";
-import { Sidenav } from "./sideNav";
+
 
 
 export const EditClientDetails = () => {
@@ -42,7 +42,7 @@ export const EditClientDetails = () => {
 
   return (
     <>
-    <Sidenav/>
+    
       {client.length ? (
         <div className="everything">
           <h3>Edit client Details</h3>
