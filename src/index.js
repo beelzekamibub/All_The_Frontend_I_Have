@@ -17,8 +17,8 @@ import { ForgetPassword } from './Pages/forgetPassword';
 import { Investment } from './Pages/Investment';
 import { AdviserProfile } from './Pages/AdvisorProfile';
 import { AddClient } from './Pages/AddClient';
-
-
+import { EditClientDetails } from './Pages/editClientDetails';
+import { ClientDetails } from './Pages/ClientDetails';
 
 const router = createBrowserRouter([
   {
@@ -62,13 +62,17 @@ const router = createBrowserRouter([
     element: <AddClient/>,
   },
   {
-    path: "investment",
+    path: "investment/:id",
     element: <Investment/>,
+  },
+  {
+    path: "editDetails/:id",
+    element: <EditClientDetails/>,
+  },
+  {
+    path: "clientDetails",
+    element: <ClientDetails/>,
   }
-  
-  
-  
-
 ]);
 
 

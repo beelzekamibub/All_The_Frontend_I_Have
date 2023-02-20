@@ -39,6 +39,6 @@ export function Dashboardadv() {
       <Navbarr/>
       <ClientInfo items={items} handleDelete={handleDelete} />
 
-      <Footer />
+      
       </div>
       ); }
