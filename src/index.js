@@ -17,6 +17,7 @@ import { ForgetPassword } from './Pages/forgetPassword';
 import { Investment } from './Pages/Investment';
 import { AdviserProfile } from './Pages/AdvisorProfile';
 import { AddClient } from './Pages/AddClient';
+import { Dashboard } from './Pages/dashboard';
 import { EditClientDetails } from './Pages/editClientDetails';
 import { ClientDetails } from './Pages/ClientDetails';
 
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
   {
     path: "investment/:id",
     element: <Investment/>,
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard/>,
   },
   {
     path: "editDetails/:id",

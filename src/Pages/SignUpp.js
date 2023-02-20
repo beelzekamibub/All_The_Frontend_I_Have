@@ -40,7 +40,6 @@ function SignUpp() {
 
 
     try {
-      // alert("ljlslfdjls");
       console.log("made a fetch call");
       fetch("https://localhost:7061/api/Auth/Register", {
         method: "POST",
