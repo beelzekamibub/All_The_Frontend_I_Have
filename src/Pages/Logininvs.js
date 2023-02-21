@@ -4,17 +4,23 @@ import { Navbarr } from "../Components/navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../styles/Logininvs.css";
-import axios from "axios";
+
 
 export const Logininvs = () => {
   const [email, setEmail] = useState("");
-
+  const [validated, setValidated] = useState(false);
   const [password, setPassword] = useState("");
 
   const ForgotPassword = ()=>{
 
   }
   const SignIn = (e) => {
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setValidated(true);
     e.preventDefault();
     let values = {
       "email": email,
@@ -49,7 +55,7 @@ export const Logininvs = () => {
     <>
       <Navbarr />
       <div className="wholeLoginadvPage">
-        <Form className="signInForm" id="signInForm">
+        <Form className="signInForm" id="signInForm" noValidate validated={validated}>
           <center>
             <img
               className="logo"
@@ -61,15 +67,18 @@ export const Logininvs = () => {
           <p className="signUpText">Let's build your Portfolio</p>
           <Form.Group className="mb-3" controlId="formBasicEmail1" md="true">
             <Form.Label>Email</Form.Label>
-            <Form.Control value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
+            <Form.Control required value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
+            <Form.Control.Feedback type="invalid">Please Enter valid email</Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail" md="true">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              required
               value={password}
               onChange={(e)=>setPassword(e.target.value)}
               type="password"
             />
+            <Form.Control.Feedback type="invalid">This field is required.</Form.Control.Feedback>
           </Form.Group>
           
           <Button onClick={SignIn} variant="primary" type="submit">

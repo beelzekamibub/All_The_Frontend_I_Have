@@ -20,6 +20,7 @@ import { AddClient } from './Pages/AddClient';
 import { Dashboard } from './Pages/dashboard';
 import { EditClientDetails } from './Pages/editClientDetails';
 import { ClientDetails } from './Pages/ClientDetails';
+import {Abcd} from './Pages/abc'
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
   {
     path: "clientDetails",
     element: <ClientDetails/>,
+  },
+  {
+    path: "abc",
+    element: <Abcd/>,
   }
 ]);
 

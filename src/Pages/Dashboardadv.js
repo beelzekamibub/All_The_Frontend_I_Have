@@ -35,10 +35,11 @@ export function Dashboardadv() {
   };
 
   return (
-    <div className="App">
-      <Navbarr/>
+    <div className="App" style={{ display: 'flex', height: '100vh' }}>
+      <Sidenav />
+        <div style={{flex: 1, padding: '20px' }}>
       <ClientInfo items={items} handleDelete={handleDelete} />
-
+        </div>
       
       </div>
       ); }

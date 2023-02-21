@@ -1,5 +1,6 @@
 #wholeBody {
-  margin-top: 70px;
+  position:fixed;
+  top:0;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -23,3 +24,6 @@
   text-decoration:underline;
   color:black;
 }
+
+
+.table-responsive { overflow-x: auto; }

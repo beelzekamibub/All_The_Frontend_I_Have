@@ -10,8 +10,8 @@ export const ClientInfo = ({ items, handleDelete }) => {
       <p >It's good to see you again</p>
       <p id="clientInfoPara">List of Clients</p>
       
-      
-      <Table responsive hover id="table" >
+      <div className="table-responsive">
+      <Table responsive="sm" hover id="table" >
         <thead>
           <tr>
             <th>Client ID</th>
@@ -49,7 +49,7 @@ export const ClientInfo = ({ items, handleDelete }) => {
           ))}
         </tbody>
       </Table>
-      
+      </div>
     </div>
   );
 };
