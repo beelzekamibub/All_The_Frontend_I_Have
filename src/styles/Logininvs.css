@@ -1,16 +1,21 @@
 .wholeLoginadvPage {
-    display: flex;
+  display: flex;
+  min-height: 80vh;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
     
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
+  }
+  .logoimg{
+    height: 10%;
+    width: 10%;
+  }
 .signInForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
-  padding: 30px 20px;
+  width: 500px;
+  padding: 20px 20px;
   background: white;
 }
 #signInForm {
@@ -31,10 +36,17 @@
 }
 #abc {
   padding: 0px 0px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 0px;
+  padding-bottom: 3%;
   font-size: 15px;
   border-radius: 10px;
   width: fit-content;
   
+}
+@media only screen and (max-width: 800px) {
+  .wholeLoginadvPage{
+    width: 93%;
+    margin-top: 4%;
+    padding: 2%;
+  }
 }

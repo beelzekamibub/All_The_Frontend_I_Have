@@ -5,7 +5,7 @@ import Table from "react-bootstrap/Table";
 import { Roww } from "./row";
 import { apiRequest } from "./apiRequest";
 import "../styles/editClientDetails.css";
-//import { Sidenav } from '../Components/sidenav';
+import { Sidenav } from "../Components/sidenav";
 
 
 export const EditClientDetails = () => {
@@ -41,8 +41,10 @@ export const EditClientDetails = () => {
   };
 
   return (
-    <>
-    {/* <Sidenav/> */}
+    
+    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+      <Sidenav />
+      <div style={{ flex: 1, padding: '20px', overflowY: 'scroll' }}>
       {client.length ? (
         <div className="everything">
           <h3>Edit client Details</h3>
@@ -119,9 +121,8 @@ export const EditClientDetails = () => {
             </div>
           ))}
         </div>
-      ) : (
-        <p style={{ marginTop: "2rem" }}>Client do not exist</p>
-      )}
-    </>
+      ) : (<p style={{ marginTop: "2rem" }}>Client do not exist</p>)}
+      </div>
+    </div>
   );
 };

@@ -1,45 +1,75 @@
 import Button from 'react-bootstrap/Button'
-import { Sidenav } from '../Components/sidenav'
-import { Navbarr } from "../Components/navbar";
-import { Footer } from "../Components/footer";
-import { ClientInfo } from "./ClientInfo";
+import { ClientList } from "./ClientList";
 import { useEffect, useState } from "react";
 import "../styles/Dashboardadv.css";
-import { apiRequest } from "./apiRequest";
 
 
 export function Dashboardadv() {
-  const API_AdviserClientList = "http://localhost:8020/AdviserClientList";
-  const [items, setItems] = useState([]);
-
+  const [clientsList, setClientsList] = useState([]);
+  var ntokenn = "";
   useEffect(() => {
-    const fetchAdviserClientList = async () => {
-      try {
-        const response = await fetch(API_AdviserClientList);
-        const tempList = await response.json();
-        setItems(tempList);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    (async () => await fetchAdviserClientList())();
-  }, []);
+    // setClientsList([]);
+    // let token = localStorage.getItem("JWT-Token");
+    // if(token==""){
+    //   alert("not authorized");
+    // }
+    // let ntoken = "Bearer " + token.replaceAll('"', '');
+    // ntokenn = ntoken;
 
-  const handleDelete = async (item) => {
-    const listItems = items.filter((it) => it.id !== item.id);
-    setItems(listItems);
-    const deleteOptions = { method: "DELETE"};
-    const reqUrl = `${API_AdviserClientList}/${item.id}`;
-    const result = await apiRequest(reqUrl, deleteOptions);
+    // try {
+    //   console.log("made a get call");
+    //   fetch("https://localhost:7061/api/User/Get-All-Clients-for-an-advisor", {
+    //     method: "GET",
+    //     headers: {
+    //       'Content-type': 'application/json',
+    //       "Access-Control-Allow-Origin": "*",
+    //       "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE",
+    //       "Authorization": ntoken,
+    //       "Access-Control-Max-Age": 86400
+    //     }
+    //   })
+    //     .then(res => res.json())
+    //     .then((data) => {
+    //       setClientsList(data);
+
+    //     })
+    // } catch (error) {
+    //   console.log("Error-> ", error);
+    // }
+  },[])
+
+  const cli = clientsList.map((e,ind) =>{
+    return (
+      <tr key={ind}>
+        <td>
+        <label>{e.clientID}</label>
+        </td>
+        <td>
+        <Button href={"/clientDetails/" + e.userId}  className="btnClientName" variant="link" >{e.firstName}</Button>
+        </td>
+        <td>
+        <Button href={"/clientDetails/"+ e.userId} className="btnClientName" variant="link" >{e.lastName}</Button>
+        </td>
+        <td>{e.email}</td>
+        <td>{e.phone}</td>
+      </tr>
+    )
+  })
+
+  // const handleDelete = async (item) => {
+  //   const listItems = items.filter((it) => it.id !== item.id);
+  //   setItems(listItems);
+  //   const deleteOptions = { method: "DELETE"};
+  //   const reqUrl = `${API_AdviserClientList}/${item.id}`;
+  //   const result = await apiRequest(reqUrl, deleteOptions);
     
-  };
+  // };
 
   return (
-    <div className="App" style={{ display: 'flex', height: '100vh' }}>
-      <Sidenav />
-        <div style={{flex: 1, padding: '20px' }}>
-      <ClientInfo items={items} handleDelete={handleDelete} />
-        </div>
+    <div className="App">
+      
+      <ClientList clientlist={cli}/>
+ 
       
       </div>
       ); }

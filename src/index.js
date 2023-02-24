@@ -10,17 +10,17 @@ import reportWebVitals from './reportWebVitals';
 import  SignUpp  from './Pages/SignUpp';
 import { Logininvs } from './Pages/Logininvs';
 import { Loginadv } from './Pages/Loginadv';
-import { Dashboardinvs } from './Pages/Dashboardinvs';
 import { Dashboardadv } from './Pages/Dashboardadv';
 import { ClientList } from './Pages/ClientList';
 import { ForgetPassword } from './Pages/forgetPassword';
 import { Investment } from './Pages/Investment';
 import { AdviserProfile } from './Pages/AdvisorProfile';
 import { AddClient } from './Pages/AddClient';
-import { Dashboard } from './Pages/dashboard';
 import { EditClientDetails } from './Pages/editClientDetails';
 import { ClientDetails } from './Pages/ClientDetails';
+
 import {Abcd} from './Pages/abc'
+
 
 const router = createBrowserRouter([
   {
@@ -38,10 +38,6 @@ const router = createBrowserRouter([
   {
     path: "loginadv",
     element: <Loginadv/>,
-  },
-  {
-    path: "dashboardinvs",
-    element: <Dashboardinvs/>,
   },
   {
     path: "dashboardadv",
@@ -68,10 +64,6 @@ const router = createBrowserRouter([
     element: <Investment/>,
   },
   {
-    path: "dashboard",
-    element: <Dashboard/>,
-  },
-  {
     path: "editDetails/:id",
     element: <EditClientDetails/>,
   },
@@ -82,7 +74,8 @@ const router = createBrowserRouter([
   {
     path: "abc",
     element: <Abcd/>,
-  }
+  },
+ 
 ]);
 
 
